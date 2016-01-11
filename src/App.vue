@@ -15,7 +15,8 @@ export default {
 
 <style lang="scss">
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 .container {
