@@ -2,7 +2,13 @@
   .questions
     h1 Questions
     ul
-      li(v-for="question in questions") {{ question.text }}
+      li.question(v-for="question in questions")
+        .text {{ question.text }}
+        form
+          input.lower(type="text")
+          span to
+          input.upper(type="text")
+          input(type="submit")
 </template>
 
 <script>
@@ -30,5 +36,44 @@ export default {
   ul {
     list-style-type: none;
     padding: 0;
+
+    form {
+      margin: 1em 0 2.5em 0;
+
+      input { vertical-align: top; }
+
+      input[type="text"] {
+        padding-left: 1em;
+        height: 3em;
+        border-radius: 2px;
+        border: 1px solid #C3C3C3;
+      }
+
+      .lower {
+        margin-right: 1em;
+      }
+
+      span {
+        vertical-align: -webkit-baseline-middle;
+      }
+
+      .upper {
+        margin: 0 1em;
+      }
+
+      input[type="submit"] {
+        padding: .6em 1em;
+        border: 0;
+        background-color: #4BC74B;
+        color: white;
+        font-size: 1em;
+        border-radius: 2px;
+
+        &:hover {
+          background-color: darken(#4BC74B, 10%);
+          cursor: pointer;
+        }
+      }
+    }
   }
 </style>
