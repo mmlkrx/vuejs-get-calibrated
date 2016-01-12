@@ -1,14 +1,17 @@
 <template lang="jade">
   .container
     <introduction></introduction>
+    <questions></questions>
 </template>
 
 <script>
 import Introduction from './components/Introduction.vue'
+import Questions from './components/Questions.vue'
 
 export default {
   components: {
-    Introduction
+    Introduction,
+    Questions
   }
 }
 </script>
