@@ -8,7 +8,7 @@
           input.lower(type="text" v-model="question.lower")
           span to
           input.upper(type="text" v-model="question.upper")
-          span Your current confidence level {{ confidence }}0%
+    .confidence-level(v-if="finished") Your current confidence level is {{ confidence }}0%
 </template>
 
 <script>
@@ -39,6 +39,19 @@ export default {
         }
       });
       return level;
+    },
+    finished () {
+      answers = 0;
+      this.questions.forEach(function(question) {
+        if (question.lower.length > 0 && question.upper.length > 0) {
+          answers++
+        }
+      });
+      if (answers === 10) {
+        return true;
+      }
+
+      return false;
     }
   }
 }
@@ -73,5 +86,10 @@ export default {
         margin: 0 1em;
       }
     }
+  }
+
+  .confidence-level {
+    margin: 2em 0 6em 0;
+    font-size: 2em;
   }
 </style>
