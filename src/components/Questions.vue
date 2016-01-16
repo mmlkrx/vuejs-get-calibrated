@@ -8,6 +8,7 @@
           input.lower(type="text" v-model="question.lower")
           span to
           input.upper(type="text" v-model="question.upper")
+          span(v-if="finished") {{question.correctAnwser}}
     .confidence-level(v-if="finished") Your current confidence level is {{ confidence }}0%
 </template>
 
