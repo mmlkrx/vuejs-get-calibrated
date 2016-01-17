@@ -2,18 +2,22 @@
   .questions
     h1 Questions
     ul
-      li.question(v-for="question in questions")
-        .text {{ question.text }}
-        .inputs
-          input.lower(type="text" v-model="question.lower")
-          span to
-          input.upper(type="text" v-model="question.upper")
-          span(v-if="finished") {{question.correctAnwser}}
+      <question
+        v-for="question in questions"
+        :text="question.text"
+        :correctAnswer="question.correctAnswer">
+      </question>
     .confidence-level(v-if="finished") Your current confidence level is {{ confidence }}0%
 </template>
 
 <script>
+import Question from './Question.vue'
+
 export default {
+  components: {
+    Question
+  },
+
   data () {
     return {
       questions: [
@@ -62,31 +66,6 @@ export default {
   ul {
     list-style-type: none;
     padding: 0;
-
-    .inputs {
-      margin: 1em 0 2.5em 0;
-
-      input { vertical-align: top; }
-
-      input[type="text"] {
-        padding-left: 1em;
-        height: 3em;
-        border-radius: 2px;
-        border: 1px solid #C3C3C3;
-      }
-
-      .lower {
-        margin-right: 1em;
-      }
-
-      span {
-        vertical-align: -webkit-baseline-middle;
-      }
-
-      .upper {
-        margin: 0 1em;
-      }
-    }
   }
 
   .confidence-level {
