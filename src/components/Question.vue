@@ -24,6 +24,11 @@
     computed: {
       answered () {
         return this.lower.length > 0 && this.upper.length > 0;
+      },
+      correct () {
+        if (this.answered) {
+          return (this.correctAnswer > this.lower && this.correctAnswer < this.upper) ? true : false;
+        }
       }
     }
   }
