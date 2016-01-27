@@ -49,7 +49,7 @@ export default {
       }
     },
     finished () {
-      answers = 0;
+      var answers = 0;
       this.$refs.questions.forEach(function(question) {
         if (question.answered) {
           answers++
