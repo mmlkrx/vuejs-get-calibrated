@@ -8,7 +8,9 @@
         :text="question.text"
         :correct-answer="question.correctAnswer">
       </question>
-    .confidence-level(v-if="finished") Your current confidence level is {{confidence}}0%
+    .status
+      .confidence-level(v-if="finished") {{confidence}}0%
+      .progress(v-else) {{ questionsAnswered }}
 </template>
 
 <script>
@@ -60,6 +62,17 @@ export default {
       }
 
       return false;
+    },
+    questionsAnswered () {
+      var allQuestions = this.questions.length;
+      var answers = 0;
+      this.$refs.questions.forEach(function(question) {
+        if (question.answered) {
+          answers++
+        }
+      });
+
+      return answers + '/' + allQuestions;
     }
   }
 }
@@ -69,8 +82,25 @@ export default {
   ul {
     list-style-type: none;
   }
+  .status {
+    position: fixed;
+    right: 80%;
+    top: 11rem;
+    height: 10em;
+    width: 11em;
+  }
+  .progress, .confidence-level {
+    color: #767C82;
+    border: 8px dashed #D6D6D6;
+    height: 100%;
+    line-height: 3em;
+    font-size: 3em;
+    text-align: center;
+    font-weight: bold;
+  }
   .confidence-level {
-    margin: 2em 0 6em 0;
-    font-size: 2em;
+    background-color: #78B580;
+    border: 8px dashed #78B580;
+    color: white;
   }
 </style>
