@@ -1,6 +1,6 @@
 <template lang="jade">
   .questions
-    h1 Questions
+    h2 Questions
     ul
       <question
         v-ref:questions
@@ -68,9 +68,7 @@ export default {
 <style lang="scss">
   ul {
     list-style-type: none;
-    padding: 0;
   }
-
   .confidence-level {
     margin: 2em 0 6em 0;
     font-size: 2em;

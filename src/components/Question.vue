@@ -1,10 +1,13 @@
 <template lang="jade">
   li.question
-    .text {{ text }}
-    .inputs
-      input.lower(type="text" v-model="lower")
-      span to
-      input.upper(type="text" v-model="upper")
+    p {{ text }}
+    .row
+      .inputs.column.column-50
+        .row
+          input.column.lower(type="text" v-model="lower")
+          span to
+          input.column.upper(type="text" v-model="upper")
+
 </template>
 
 <script>
@@ -35,28 +38,12 @@
 </script>
 
 <style lang="scss">
-  .inputs {
-    margin: 1em 0 2.5em 0;
+  span {
+    margin: 0 2rem;
+    line-height: 3.5rem;
+  }
 
-    input { vertical-align: top; }
-
-    input[type="text"] {
-      padding-left: 1em;
-      height: 3em;
-      border-radius: 2px;
-      border: 1px solid #C3C3C3;
-    }
-
-    .lower {
-      margin-right: 1em;
-    }
-
-    span {
-      vertical-align: -webkit-baseline-middle;
-    }
-
-    .upper {
-      margin: 0 1em;
-    }
+  .question {
+    margin-bottom: 5rem;
   }
 </style>

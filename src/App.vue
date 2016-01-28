@@ -17,13 +17,18 @@ export default {
 </script>
 
 <style lang="scss">
+@import "stylesheets/milligram";
+
 body {
-  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased !important;
 }
 
 .container {
   width: 50em;
   margin: 0 auto;
+}
+
+.row {
+  margin-left: -.5rem;
 }
 </style>
